@@ -90,7 +90,7 @@ class Record < ActiveRecord::Base
     y = line.split(" | ")
     x.each_with_index do |e, index|
       begin
-        value =  y[index].strip
+        value = HTMLEntities.new.decode y[index].strip
       rescue
         next
       end
